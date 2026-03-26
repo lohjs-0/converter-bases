@@ -1,12 +1,3 @@
-"""
-main.py
-Ponto de entrada da aplicação.
-
-ConversorApp é o orquestrador: instancia os painéis,
-conecta os callbacks e gerencia estado compartilhado
-(histórico e tema ativo). Nenhuma lógica de UI vive aqui.
-"""
-
 import tkinter as tk
 from tkinter import messagebox, filedialog
 
