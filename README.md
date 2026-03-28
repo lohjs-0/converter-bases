@@ -4,7 +4,6 @@ A desktop application to convert numbers between multiple bases, built with Pyth
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white)
 ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-informational)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
