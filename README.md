@@ -1,22 +1,22 @@
-# 🔢 Number Base Converter
+# 🔢 Conversor de Bases Numéricas
 
-A desktop application to convert numbers between multiple bases, built with Python and Tkinter.
+Uma aplicação desktop para converter números entre múltiplas bases, construída com Python e Tkinter.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white)
 ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-informational)
 
 ---
 
-## Features
+## Funcionalidades
 
-- ✅ Convert between all bases: **Binary · Octal · Decimal · Hex · Base32 · Base64**
-- 💡 Visual **bit LED display** — each bit shown as a colored circle
-- 🔁 **Two's complement** with step-by-step explanation
-- 📖 **"Do it by hand"** tab — learn how to convert without a computer
-- 📜 **Conversion history** panel
-- 💾 Export history as `.txt`, `.csv`, `.json` or `.pdf`
-- 🌙 **Dark / light mode** toggle
-- 🗂️ Modular codebase — clean separation between logic and UI
+- ✅ Converte entre todas as bases: **Binário · Octal · Decimal · Hex · Base32 · Base64**
+- 💡 **Display LED visual de bits** — cada bit exibido como um círculo colorido
+- 🔁 **Complemento de dois** com explicação passo a passo
+- 📖 Aba **"Faça à mão"** — aprenda a converter sem computador
+- 📜 Painel de **histórico de conversões**
+- 💾 Exportar histórico como `.txt`, `.csv`, `.json` ou `.pdf`
+- 🌙 Alternância entre **modo escuro / claro**
+- 🗂️ Código modular — separação clara entre lógica e interface
 
 ---
 
@@ -26,28 +26,28 @@ A desktop application to convert numbers between multiple bases, built with Pyth
 
 ---
 
-## Getting Started
+## Como Executar
 
-### Prerequisites
+### Pré-requisitos
 
-- Python 3.8 or higher
-- Tkinter (included in the standard Python installation)
-- `reportlab` — only required for PDF export
+- Python 3.8 ou superior
+- Tkinter (incluído na instalação padrão do Python)
+- `reportlab` — necessário apenas para exportação em PDF
 
-### Installation
+### Instalação
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/conversor-bases.git
+# Clonar o repositório
+git clone https://github.com/seu-usuario/conversor-bases.git
 
-# Enter the project folder
+# Entrar na pasta do projeto
 cd conversor-bases
 
-# (Optional) Install reportlab for PDF export
+# (Opcional) Instalar reportlab para exportação em PDF
 pip install reportlab
 ```
 
-### Running
+### Executando
 
 ```bash
 python main.py
@@ -55,71 +55,72 @@ python main.py
 
 ---
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 conversor-bases/
-├── main.py                  # Entry point — orchestrates all panels
-├── converter.py             # Pure conversion logic (no UI)
+├── main.py                  # Ponto de entrada — orquestra todos os painéis
+├── converter.py             # Lógica de conversão pura (sem UI)
 └── app/
-    ├── themes.py            # Color themes and constants
+    ├── themes.py            # Temas de cores e constantes
     ├── panels/
-    │   ├── header.py        # Top bar with title and theme toggle
-    │   ├── main_panel.py    # Input field, LEDs and result cards
-    │   └── side_panel.py    # Tabs: history, explanation, C2, manual
+    │   ├── header.py        # Barra superior com título e alternância de tema
+    │   ├── main_panel.py    # Campo de entrada, LEDs e cards de resultado
+    │   └── side_panel.py    # Abas: histórico, explicação, C2, manual
     └── widgets/
-        ├── led_canvas.py    # Reusable LED bit display widget
-        └── result_cards.py  # Reusable result cards grid
+        ├── led_canvas.py    # Widget reutilizável de display LED de bits
+        └── result_cards.py  # Grade reutilizável de cards de resultado
 ```
 
 ---
 
-## How Conversion Works
+## Como a Conversão Funciona
 
-Every conversion uses **decimal as an intermediate step**:
+Toda conversão usa o **decimal como etapa intermediária**:
 
 ```
-Input (any base) → Decimal → Target base
+Entrada (qualquer base) → Decimal → Base de destino
 ```
 
-**Example:** converting `1A` (hex) to binary:
+**Exemplo:** convertendo `1A` (hex) para binário:
+
 1. `1A` hex → `26` decimal
-2. `26` decimal → `11010` binary
+2. `26` decimal → `11010` binário
 
 ---
 
-## Two's Complement
+## Complemento de Dois
 
-Used to represent negative numbers in digital systems:
+Usado para representar números negativos em sistemas digitais:
 
 ```
 +5  →  0000 0101   (original)
        0000 0101
        ---------
-C1  →  1111 1010   (invert all bits)
+C1  →  1111 1010   (inverter todos os bits)
     +          1
        ---------
-C2  →  1111 1011   (= -5 with sign)
+C2  →  1111 1011   (= -5 com sinal)
 ```
 
 ---
 
-## Test Values
+## Valores de Teste
 
-| Input | Base | BIN | OCT | DEC | HEX |
-|-------|------|-----|-----|-----|-----|
-| `255` | Decimal | `11111111` | `377` | `255` | `FF` |
-| `1010` | Binary | `1010` | `12` | `10` | `A` |
-| `FF` | Hexadecimal | `11111111` | `377` | `255` | `FF` |
-| `17` | Octal | `1111` | `17` | `15` | `F` |
+| Entrada | Base        | BIN        | OCT | DEC | HEX |
+|---------|-------------|------------|-----|-----|-----|
+| `255`   | Decimal     | `11111111` | `377` | `255` | `FF` |
+| `1010`  | Binário     | `1010`     | `12`  | `10`  | `A`  |
+| `FF`    | Hexadecimal | `11111111` | `377` | `255` | `FF` |
+| `17`    | Octal       | `1111`     | `17`  | `15`  | `F`  |
 
 ---
 
-## Technologies
+## Tecnologias
 
-| Tool | Purpose |
-|------|---------|
-| **Python 3** | Main language |
-| **Tkinter** | GUI (stdlib, no extra dependencies) |
-| **base64** | Base32 / Base64 encoding (stdlib) |
-| **reportlab** | PDF export (optional) |
+| Ferramenta    | Finalidade                              |
+|---------------|-----------------------------------------|
+| **Python 3**  | Linguagem principal                     |
+| **Tkinter**   | Interface gráfica (stdlib, sem dependências extras) |
+| **base64**    | Codificação Base32 / Base64 (stdlib)    |
+| **reportlab** | Exportação em PDF (opcional)            |
